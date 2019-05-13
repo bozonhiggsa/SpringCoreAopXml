@@ -20,7 +20,7 @@ public class Logging {
             System.out.println("Value: " + someValue.toString());
         }
         else{
-            System.out.println("Method didn't return any value");
+            System.out.println("Method didn't return any value.");
         }
     }
 
