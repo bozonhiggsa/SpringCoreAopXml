@@ -9,16 +9,16 @@
 
     <aop:config>
         <aop:aspect id="log" ref="logging">
-            <aop:pointcut id="selectAll"
-                          expression="execution(* com.springApp.springIoC.*.*(..))"/>
-            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
-            <aop:after pointcut-ref="selectAll" method="afterAdvice"/>
-            <aop:after-returning pointcut-ref="selectAll"
+            <aop:pointcut id="forAllMethods"
+                          expression="execution(* com.springApp.springIoC.Developer.*(..))"/>
+            <aop:before pointcut-ref="forAllMethods" method="adviceBeforeMethod"/>
+            <aop:after pointcut-ref="forAllMethods" method="adviceAfterMethod"/>
+            <aop:after-returning pointcut-ref="forAllMethods"
                                  returning="someValue"
-                                 method="afterReturningAdvice"/>
-            <aop:after-throwing pointcut-ref="selectAll"
+                                 method="adviceAfterReturningValue"/>
+            <aop:after-throwing pointcut-ref="forAllMethods"
                                 throwing="e"
-                                method="inCaseOfExceptionThrowAdvice"/>
+                                method="adviceInCaseOfExceptionThrow"/>
         </aop:aspect>
     </aop:config>
 

@@ -12,11 +12,22 @@ public class AopDeveloperRunner {
     public static void main(String[] args) {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("aop-developer-config.xml");
+
         System.out.println("Spring context was created");
 
         Developer developer = (Developer) context.getBean("developer");
 
+        System.out.println("-----------------------------");
+        // implicit invoke .toString() method
         System.out.println(developer);
-        developer.throwSomeMysticException();
+        System.out.println("-----------------------------");
+        developer.someMethod();
+        System.out.println("-----------------------------");
+        try{
+            developer.throwSomeMysticException();
+        }
+        catch (Exception e){
+            /*NOP*/
+        }
     }
 }
